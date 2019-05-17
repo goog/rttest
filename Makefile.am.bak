@@ -1,6 +1,6 @@
 
 rtems_tests_PROGRAMS = hello
-hello_SOURCES = init.c oled.c oled_iic.c gps.c adc.c I2C_Software_Master.c oled_iic.h oledfont.h led.h pins.h oled.h time_rtc.h I2C_Software_Master.h adc.h carrier.h carrier.c spi.h spi.c w25qxx.c w25qxx.h
+hello_SOURCES = init.c oled.c oled_iic.c gps.c adc.c I2C_Software_Master.c oled_iic.h oledfont.h led.h pins.h oled.h time_rtc.h I2C_Software_Master.h adc.h carrier.h carrier.c spi.h spi.c
 
 dist_rtems_tests_DATA = hello.scn
 dist_rtems_tests_DATA += hello.doc

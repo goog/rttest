@@ -82,7 +82,9 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(rtems_testsdir)" \
 	"$(DESTDIR)$(rtems_testsdir)"
 PROGRAMS = $(rtems_tests_PROGRAMS)
-am_hello_OBJECTS = init.$(OBJEXT)
+am_hello_OBJECTS = init.$(OBJEXT) oled.$(OBJEXT) oled_iic.$(OBJEXT) \
+	gps.$(OBJEXT) adc.$(OBJEXT) I2C_Software_Master.$(OBJEXT) \
+	carrier.$(OBJEXT) spi.$(OBJEXT) w25qxx.$(OBJEXT)
 hello_OBJECTS = $(am_hello_OBJECTS)
 hello_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
@@ -256,7 +258,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-hello_SOURCES = init.c led.h
+hello_SOURCES = init.c oled.c oled_iic.c gps.c adc.c I2C_Software_Master.c oled_iic.h oledfont.h led.h pins.h oled.h time_rtc.h I2C_Software_Master.h adc.h carrier.h carrier.c spi.h spi.c w25qxx.c w25qxx.h
 dist_rtems_tests_DATA = hello.scn hello.doc
 AM_CPPFLAGS = 
 AM_CFLAGS = 
@@ -349,7 +351,15 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/I2C_Software_Master.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/adc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/carrier.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gps.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/init.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/oled.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/oled_iic.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/spi.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/w25qxx.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
